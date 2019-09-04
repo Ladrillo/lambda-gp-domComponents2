@@ -1,0 +1,71 @@
+// imports
+@import "reset.less";
+@import "variables.less";
+@import "article/article.less";
+
+:root {
+  font-size: @defaultFontSize;
+
+  @media (max-width: 550px) {
+    font-size: @mobileFontSize;
+  }
+}
+
+h1, h3 {
+  font-weight: bold;
+}
+
+h1 {
+  font-size: @xLargeFontSize;
+}
+
+#petsContainer {
+  margin: 0 auto;
+  max-width: @maxWidthWebsite;
+  
+  .articles {
+    display: flex;
+    
+    @media (max-width: 550px) {
+      flex-direction: column;
+    }
+  }
+
+  .flex-baseline-between(@justifyContent) {
+    display: flex;
+    align-items: baseline;
+    justify-content: @justifyContent;
+  }
+
+  header {
+    .flex-baseline-between(space-between);
+    padding: 1rem;
+    background-color: @primaryColor;
+    color: @white;
+  
+    @media (max-width: 550px) {
+      flex-direction: column;
+    }
+  
+    &:hover {
+      background-color: @tertiaryColor;
+    }
+
+    a {
+      color: inherit;
+    }
+  }
+
+  footer {
+    .flex-baseline-between(center);
+    background-color: @tertiaryColor;
+    color: @white;
+    font-size: 75%;
+
+    p {
+      margin: 1em 0;
+      padding: .5em;
+      border: .25em solid @white;
+    }
+  }
+}
