@@ -13,20 +13,3 @@ function returnsPromise(data) {
   }
   return Promise.resolve({ message: `I am happy with number ${data}` });
 }
-
-const onPromiseResolved = resolvedValue => {
-  debugger
-};
-
-const onPromiseRejected = error => {
-  debugger
-};
-
-const onNoMatterWhat = () => {
-  debugger
-};
-
-returnsPromise(25)
-  .then(onPromiseResolved)
-  .catch(onPromiseRejected)
-  .finally(onNoMatterWhat);

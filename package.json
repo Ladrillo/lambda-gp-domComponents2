@@ -4,8 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "pageserver": "live-server",
-    "dataserver": "nodemon server.js"
+    "start": "live-server",
+    "startserver": "nodemon server.js"
   },
   "keywords": [],
   "author": "",
