@@ -35,11 +35,11 @@ function returnsPromise(data) {
 function getGithubData() {
   axios.get('https://api.github.com/users/Ladrillo')
     .then(response => { // response is what the promise resolved to (what it looks is up to axios)
-    document.body.innerText = response.data.name;
-  })
-  .catch(error => { // error is what the promise rejected to (what it looks like depends on axios)
-    document.body.innerText = error.message;
-  });
+      document.body.innerText = response.data.name;
+    })
+    .catch(error => { // error is what the promise rejected to (what it looks like depends on axios)
+      document.body.innerText = error.message;
+    });
 }
 
 // not gonna work
