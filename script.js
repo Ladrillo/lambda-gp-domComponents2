@@ -17,18 +17,14 @@ function returnsPromise(data) {
 // promises sometimes resolve
 // promises sometimes reject
 
-returnsPromise() // this invocation returns a promise
-  .then(data => { // THE RESOLVED VALUE
+axios.get('http://localhost:4000/articles')
+  .then(data => {
     debugger
-    // the happy path
-    // this code runs if the promise resolves
   })
   .catch(error => {
-    // debugger
-    document.body.innerText = error;
-    // the sad path
-    // this code runs if the promise fails
+    debugger
   });
+
 
 // axios  <---
 
