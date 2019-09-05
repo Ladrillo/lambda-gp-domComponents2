@@ -17,13 +17,18 @@ function returnsPromise(data) {
 // promises sometimes resolve
 // promises sometimes reject
 
-axios.get('http://localhost:4000/articles')
-  .then(data => {
-    debugger
+function getGithubData() {
+  axios.get('https://api.github.com/users/Ladrillo')
+  .then(response => {
+    document.body.innerText = response.data.name;
   })
   .catch(error => {
-    debugger
+    document.body.innerText = error.message;
   });
+}
+
+document.querySelector('h1')
+  .addEventListener('click', getGithubData);
 
 
 // axios  <---
