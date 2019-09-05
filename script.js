@@ -13,3 +13,32 @@ function returnsPromise(data) {
   }
   return Promise.resolve({ message: `I am happy with number ${data}` });
 }
+
+// promises sometimes resolve
+// promises sometimes reject
+
+returnsPromise() // this invocation returns a promise
+  .then(data => { // THE RESOLVED VALUE
+    debugger
+    // the happy path
+    // this code runs if the promise resolves
+  })
+  .catch(error => {
+    // debugger
+    document.body.innerText = error;
+    // the sad path
+    // this code runs if the promise fails
+  });
+
+// axios  <---
+
+// requesting things over the network
+// takes time
+// so we use functions that, instead of returning a value
+// (which is not available, because it takes time to get it)
+// RETURN a promise.
+
+// A promise is just an object with some methods we can use
+// to schedule future behavior
+// (what should happen once the value I wanted becomes available
+// OR the action fails)
