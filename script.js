@@ -17,29 +17,30 @@ function returnsPromise(data) {
 // promises sometimes resolve
 // promises sometimes reject
 
+// we want to fetch data from an api at the click 
+// of a button
+// we build a function called getGithubData
+// and add it as a click handler to the <h1>
+
+// the getGithubData function uses axios to get the stuff
+// axios returns a promise, so we need to hook up
+// sad path and happy path
+// axios.get takes a url
+// if the request succeeds, the browser calls the 
+// happy path callback, injecting the axios stuff
+// if the request fails, the browser calls 
+// the sad path, injecting the axios error
+
+
 function getGithubData() {
   axios.get('https://api.github.com/users/Ladrillo')
-  .then(response => {
+  .then(response => { // response is what the promise resolved to (what it looks is up to axios)
     document.body.innerText = response.data.name;
   })
-  .catch(error => {
+  .catch(error => { // error is what the promise rejected to (what it looks like depends on axios)
     document.body.innerText = error.message;
   });
 }
 
 document.querySelector('h1')
   .addEventListener('click', getGithubData);
-
-
-// axios  <---
-
-// requesting things over the network
-// takes time
-// so we use functions that, instead of returning a value
-// (which is not available, because it takes time to get it)
-// RETURN a promise.
-
-// A promise is just an object with some methods we can use
-// to schedule future behavior
-// (what should happen once the value I wanted becomes available
-// OR the action fails)
