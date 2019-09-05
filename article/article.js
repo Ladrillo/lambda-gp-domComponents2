@@ -24,20 +24,3 @@ function articleMaker({ title, text1, text2 }) {
 
   return article;
 }
-
-function successHandler(response) {
-  response.data.forEach(article => {
-    document.querySelector('.articles')
-      .appendChild(articleMaker(article));
-  });
-}
-
-function failureHandler(error) {
-  const errorMessage = document.createElement('div');
-  errorMessage.innerHTML = `<h1>${error.response.data.error}</h1>`;
-  document.querySelector('#petsContainer').prepend(errorMessage);
-}
-
-axios.get('http://localhost:4000/articles')
-  .then(successHandler)
-  .catch(failureHandler);
